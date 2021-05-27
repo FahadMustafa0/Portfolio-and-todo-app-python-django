@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{%block body%}
+<ul class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <li class="nav-item">
+<h1 style="color:white;text-align:left;">ToDoApp</h1>
+  </li>
+ </ul>
+
+ <div class="row mt-4">
+<div class="col">
+ <form  method="post" action='/todoapp/'>
+  {% csrf_token %}
+  <div class="mb-10">
+    <label for="exampleInputEmail1" style="margin:12px;"class="form-label"><h2>Add item</h2> </label>
+    <input type="text" class="form-control" id="item" name="item" placeholder="type here..." style="margin:12px" aria-describedby="emailHelp">
+  <button type="submit" style="margin:12px" class="btn btn-primary">Submit</button>
+  
+</form>
+</div>
+</div>
+
+<div class="row mt-4">
+<div class="col">
+<ul class="list-group">
+ {% for to_item in  todo_items %}
+   <li class="list-group-item" >{{to_item.text}}
+   <form method="post" action="/delete_todo/{{to_item.id}}/"  style=" float:right;" >
+   {% csrf_token %}
+      <button type="submit" style="margin:12px; background-color: #f44336; float:right;"  class="btn btn-primary mb-2">Delete</button>
+    </form>
+   </li>
+ {% endfor%}  
+</ul>
+</div>
+</div>
+
+{% endblock body%}
+{% block title%}
+{%endblock title%}
