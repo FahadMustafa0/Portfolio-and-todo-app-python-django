@@ -22,12 +22,21 @@
 <div class="row mt-4">
 <div class="col">
 <ul class="list-group">
+{% comment %} Read operation {% endcomment %}
  {% for to_item in  todo_items %}
-   <li class="list-group-item" >{{to_item.text}}
+   <li class="list-group-item">
+   {{to_item.text}}
+{% comment %} Edit Button Written in form {% endcomment %}
+   <form method="post" action="/edit_todo/{{to_item.id}}/">
+    {% csrf_token %}
+      <button type="submit" style="margin:12px; background-color: ##000080; float:right;"  class="btn btn-primary mb-2">Edit</button>
+   </form>
+{% comment %} Delete Button Written in form {% endcomment %}
    <form method="post" action="/delete_todo/{{to_item.id}}/"  style=" float:right;" >
    {% csrf_token %}
       <button type="submit" style="margin:12px; background-color: #f44336; float:right;"  class="btn btn-primary mb-2">Delete</button>
     </form>
+
    </li>
  {% endfor%}  
 </ul>

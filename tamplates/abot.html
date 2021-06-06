@@ -1,7 +1,50 @@
 ﻿{% extends "base.html"%}
+{% block head%}
+<style>
+    .test {
+      background-color: yellow;
+    }
+    </style>
+
+{%endblock head%}
 {%block body%}
-this is a about a page
+
+This is a about a {{variable}}
+<!-- <button onclick="display()"></button> -->
+<!-- <div id="genskills" onscroll="display()">
+<svg preserveAspectRatio="none" id="svg" viewBox="0 0 100 102" height="75" width="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+<path d="M0 0 L50 100 L100 0 Z" fill="#2ddae0" stroke="white"></path>
+</svg>
+</div>
+<script>
+    // document.getElementById("svg").style.display='none;
+       function display(){
+        document.getElementById("genskills").style.display="none";
+       }
+   
+</script> -->
+
+<p>Scroll down this page</p>
+
+<p id="myP" style="position:fixed">When you have scrolled 50 pixels from the top of this page, add the class "test" (yellow background color) to this paragraph. Scroll up again to remove the class.
+</p>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("myP").className = "test";
+  } else {
+    document.getElementById("myP").className = "";
+  }
+}
+</script>
+
+
 {%endblock body  %}
 {%block title %}
 About
 {%endblock title  %}
+

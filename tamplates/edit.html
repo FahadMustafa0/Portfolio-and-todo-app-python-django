@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+{%block body%}
+<ul class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <li class="nav-item">
+<h1 style="color:white;text-align:left;">ToDoApp</h1>
+  </li>
+ </ul>
+  {% comment %} Update operation {% endcomment %}
+<form method="post" action="/edit/">
+    {% csrf_token %}
+    <label>Enter the New task</label>  
+    <input type="text" name="textfield" style=" float:center;">
+    <button type="submit" style="margin:12px; background-color: ##000080; float:center;"  class="btn btn-primary mb-2">Update</button>
+   </form>
+
+   {% comment %} this is = {{ins}} {% endcomment %}
+
+
+
+{%endblock body  %}
+{%block title %}
+Edit
+{%endblock title  %}

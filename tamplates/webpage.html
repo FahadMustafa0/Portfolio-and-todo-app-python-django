@@ -1,103 +1,497 @@
-﻿{% extends "base.html"%}
-{%block body%}
-<div   class="container-fluid px-0" >  
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators" >
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/static/img/3.jpg" class="d-block w-100" alt="loading ..." >
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Portfolio</h5>
-        <p>This my portfoio website</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/static/img/2.jpg"  class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/static/img/11.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-<div   class="container-fluid px-0" >
-    <h2 class="my-2 text-center"> These are My achivements</h2>
+﻿<!doctype html>
+<html lang="en">
 
-<div class="album py-5 bg-light">
-    <div class="container">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- My css -->
+  <style>
+    .fantasytext {
+      color: rgb(99, 95, 95);
+      font-family: Blippo, fantasy;
+    }
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="https://source.unsplash.com/daily/800x600" class="d-block w-100" alt="loading ..." >
+    .footer {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #2ddae0;
+      color: white;
+      text-align: center;
+    }
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
+    progress::-webkit-progress-bar {
+      background-color: #eeeeee;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: #2ddae0;
+
+
+    }
+
+    progress[value]::-webkit-progress-value:before {
+      content: '80%';
+      position: absolute;
+      right: 0;
+      top: -125%;
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 16px 80px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      position: absolute;
+      left: 420px;
+      top: -200px;
+    }
+
+    .button1 {
+      background-color: transparent;
+      color: rgb(255, 255, 255);
+      border: 2px solid #47dadf;
+    }
+
+    .button1:hover {
+      background-color: #4dd0da;
+      color: white;
+    }
+
+
+    /* progress[value]::-webkit-progress-value::before {
+            content: '80%';
+            position: absolute;
+            right: 0;
+            top: -125%;
+        } */
+
+    /* progress[value] ::-webkit-progress-value {
+            background: rgb(55, 218, 221);
+            width: 500px;
+            height: 50px;
+        } */
+
+    /* progress[value]::-webkit-progress-bar {
+            background-color: rgb(202, 38, 38);
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        } */
+  </style>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <title>My Portfolio</title>
+</head>
+
+<body>
+
+  <!-- Crousal and nav section -->
+  <section id="home" class="flex height-fix">
+    <!-- crousal -->
+    <div class="container-fluid px-0">
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+          <a href="#Projects"><button class="button button1"><i class="mdi mdi-arrow-right"></i><strong
+                style="font-size: 20px;">View My Work</strong></button></a>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/img/k.jpg" class="d-block w-100" alt="loading ...">
+
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/pink.jpg" class="d-block w-100" alt="...">
+
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/pink3.jpg" class="d-block w-100" alt="...">
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
+      <!-- nav bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">MyPortfolio_App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/newlayout">My_Resume</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Projects">Portfolio</a>
+              </li>
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/services" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  MileStones
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/todoapp"><strong>ToDo_App</strong> </a></li>
+
+                  <li><a class="dropdown-item" href="/home"><strong>MyPortfolio_App</strong></a></li>
+                  <li><a class="dropdown-item" href="http://smartgensoft.epizy.com/"><strong>Wordpress Site</strong>
+                    </a></li>
+
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">AppLogin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logoutuser">logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin">Databaselogin</a>
+              </li>
+
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="https://source.unsplash.com/random/800x600" class="d-block w-100" alt="loading ..." >
+      </nav>
+      {% comment %} <a href="/about"><button > B</button></a> {% endcomment %}
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container-fluid px-0">
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="header">
+            <h1 class="text-center" style="font-family: fantasy; color: rgb(70, 68, 68);">About</h1>
+            <!-- <h1 class="text-center" style="font-family: fantasy; color: gray;"></h1> -->
+          </div>
+
+          <!-- <General Skills> -->
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
+            <div class="col">
+              <svg id="graph" width="160%" height="250px">
+
+                <!-- pattern -->
+                <defs>
+                  <pattern id="fast" x="0%" y="0%" height="100%" width="100%" viewBox="0 0 512 512">
+                    <image x="0%" y="0%" width="512" height="512" xlink:href="/static/img/fast.jpg">
+                    </image>
+                  </pattern>
+                </defs>
+                <!-- <polygon points="25,8 75,8 100,50 75,92 25,92 0,50" width="50px" height="50px" id="sd" class="medium" cx="30%" cy="130" r="50%" fill="url(#image)"/> -->
+                <circle id="sd" class="medium" cx="30%" cy="130" r="25%" fill="url(#fast)" />
+              </svg>
+              <h2 class="text-center fantasytext">Fast</h2>
+              <p class="text-center" style="font-size: 20px;">
+                Fast load times and lag free interaction, my highest priority.
+              </p>
+            </div>
+            <div class="col">
+              <svg id="graph" width="160%" height="250px">
+
+                <!-- pattern -->
+                <defs>
+                  <pattern id="res" x="0%" y="0%" height="100%" width="100%" viewBox="0 0 512 512">
+                    <image x="0%" y="0%" width="512" height="512" xlink:href="/static/img/res (1).jpg"></image>
+                  </pattern>
+                </defs>
+
+                <circle id="sd" class="medium" cx="30%" cy="130" r="25%" fill="url(#res)" />
+              </svg>
+              <h2 class="text-center fantasytext">Responsive</h2>
+              <p class="text-center" style="font-size: 20px;">
+                My layouts will work on any device, big or small.
+              </p>
+            </div>
+
+            <div class="col">
+              <svg id="graph" width="160%" height="250px">
+
+                <!-- pattern -->
+                <defs>
+                  <pattern id="int" x="0%" y="0%" height="100%" width="100%" viewBox="0 0 512 512">
+                    <image x="0%" y="0%" width="512" height="512" xlink:href="/static/img/int.jpg">
+                    </image>
+                  </pattern>
+                </defs>
+
+                <circle id="sd" class="medium" cx="30%" cy="130" r="25%" fill="url(#int)" />
+              </svg>
+              <h2 class="text-center fantasytext">Intuitive</h2>
+              <p class="text-center" style="font-size: 20px;">
+                Strong preference for easy to use, intuitive UX/UI.
+              </p>
+            </div>
+            <div class="col">
+              <svg id="graph" width="160%" height="250px">
+
+                <!-- pattern -->
+                <defs>
+                  <pattern id="dyn" x="0%" y="0%" height="100%" width="100%" viewBox="0 0 512 512">
+                    <image x="0%" y="0%" width="512" height="512" xlink:href="/static/img/dyn.jpg">
+                    </image>
+                  </pattern>
+                </defs>
+
+                <circle id="sd" class="medium" cx="30%" cy="130" r="25%" fill="url(#dyn)" />
+              </svg>
+              <h2 class="text-center fantasytext">Dynamic</h2>
+              <p class="text-center" style="font-size: 20px;">
+                Applications/Websites don't have to be static, I love making pages come to life.
+              </p>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="https://source.unsplash.com/collection/190727/800x600" class="d-block w-100" alt="loading ..." >
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+          <div class="header">
+
+            <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+            <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+          </div>
+
+          <!-- Me and skills-->
+
+          <div class="row row-cols-1 row-cols-sm-2 g-2">
+            <div class="col1" style="width: 50px;">
+
+            </div>
+            <div class="col" style="width: 500px; height: 500px;">
+              <div class="col">
+                <svg id="graph" width="160%" height="250px">
+
+                  <!-- pattern -->
+                  <defs>
+                    <pattern id="me" x="0%" y="0%" height="100%" width="100%" viewBox="0 0 512 512">
+                      <image x="0%" y="0%" width="512" height="512" xlink:href="/static/img/blueshirt.jpg">
+                      </image>
+                    </pattern>
+                  </defs>
+                  <!-- <polygon points="25,8 75,8 100,50 75,92 25,92 0,50" width="50px" height="50px" id="sd" class="medium" cx="30%" cy="130" r="50%" fill="url(#image)"/> -->
+                  <circle id="sd" class="medium" cx="30%" cy="130" r="25%" fill="url(#me)" />
+                </svg>
+                <h2 class="text-center fantasytext">Who's this Guy?</h2>
+                <p class="text-center" style="font-size: 20px;">
+                  I am a hardworking and ambitious individual.
+                  With Quick learner, self-motivated,
+                  confident, and a good communicator.
+                </p>
               </div>
+              <!-- <img src="https://source.unsplash.com/random/800x600" class="d-block w-100"
+                                alt="loading ..."> -->
+
+            </div>
+            <div class="col1" style="width: 40px;">
+
+            </div>
+            <div class="col" style="width: 90px;">
+              <p>
+                <strong>Python</strong><br><br><strong>Django</strong><br><br><strong>HTML</strong><br><br><strong>CSS</strong><br><br><strong>JavaScript</strong><br><br><strong>Wordpress</strong><br><br><strong>ODOO</strong><br><br><strong>Photoshop</strong>
+              </p>
+            </div>
+            <div class="col" style="width: 500px;">
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+              <div class="col" style=" height: 7px;"></div>
+              <progress class="progress" max="100" value="80" style=" width: 550px; height: 40px;"></progress>
+
+            </div>
+            <div class="col" style="width: 90px;">
+              <p style="font-size: 17px;">
+                <strong>50%</strong><br><br><strong>40%</strong><br><br><strong>40%</strong><br><br><strong>45%</strong><br><br><strong>40%</strong><br><br><strong>50%</strong><br><br><strong>60%</strong><br><br><strong>40%</strong>
+              </p>
             </div>
           </div>
+  </section>
+  <!-- Projects section -->
+  <section id="Projects">
+    <div class="header">
+      <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+    </div>
+    <!-- Projects -->
+    <div class="header">
+      <h1 class="text-center" style="font-family: fantasy; color: rgb(70, 68, 68);">Projects</h1>
+      <h1 class="text-center" style="font-family: fantasy; color: transparent;">ss</h1>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/img/todo.PNG" class="d-block w-100" alt="loading ...">
+
+          <div class="card-body">
+            <a href="/todoapp"><button class="button button1"
+                style="padding: 16px 60px; position: absolute; left: 140px; top: 125px; color: rgb(16, 151, 151); border: 2px solid  #4dd0da;"><i
+                  class="mdi mdi-arrow-right"></i><strong style="font-size: 20px;">View Site</strong></button></a>
+
+            <p class="card-text"><strong>ToDo_App</strong><br>This is a ToDoList_App app which intracts with
+              database.<br>#Python#Django#HTML#CSS</p>
+          </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/img/smartgen.PNG" class="d-block w-100" alt="loading ...">
+
+          <div class="card-body">
+            <a href="http://smartgensoft.epizy.com/"><button class="button button1"
+                style="padding: 16px 60px; position: absolute; left: 140px; top: 125px; color: rgb(255, 255, 255); border: 2px solid #ffffff;"><i
+                  class="mdi mdi-arrow-right"></i><strong style="font-size: 20px;">View Site</strong></button></a>
+
+            <p class="card-text"><strong>Smartgen</strong><br>A Wordpress blog for a software House.<br>#Wordpress </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+
+          <img src="/static/img/portfolio.PNG" class="d-block w-100" alt="loading ...">
+          <div class="card-body">
+            <a href="/home"><button class="button button1"
+                style="padding: 16px 60px; position: absolute; left: 140px; top: 125px; color: white; border: 2px solid #ffffff;"><i
+                  class="mdi mdi-arrow-right"></i><strong style="font-size: 20px;">View Site</strong></button></a>
+
+            <p class="card-text"><strong>Portify_App</strong><br>This is my personal portfolio app.It contains my
+              resue,an authentication system and a ToDo_App.#Django</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
 
-        
-{%endblock body  %}
-{%block title %}
-Home
-{%endblock title  %}
+
+  <!-- </section> -->
+
+  <section id="footer">
+    <div class="header">
+      <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+      <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+      <h1 class="text-center" style="font-family: fantasy; color: transparent;">AAAAAA</h1>
+    </div>
+
+    <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+      <path d="M0 0 L50 100 L100 0 Z" fill="#2ddae0" stroke="white"></path>
+    </svg>
+    <h5 class="text-center">Contact</h5>
+    <!-- <div class="container" style="float: right;"> -->
+    <i class="fa fa-phone"
+      style="font-size:20px;color:rgb(0, 0, 0);text-shadow:2px 2px 4px #000000; position: absolute; left: 1220px; top:2785px;">
+      +92 305 7684684</i>
+    <i class="fa fa-google"
+      style="font-size:20px;color:rgb(0, 0, 0);text-shadow:2px 2px 4px #000000; position: absolute; left: 1220px; top:2755px;">
+      ranafahad10031@gmail.com</i>
+    <i class="fa fa-github"
+      style="font-size:20px;color:rgb(0, 0, 0);text-shadow:2px 2px 4px #000000; position: absolute; left: 1220px; top:2815px;">
+      github.com/FahadMustafa0</i>
+    <i class="fa fa-linkedin"
+      style="font-size:20px;color:rgb(0, 0, 0);text-shadow:2px 2px 4px #000000; position: absolute; left: 1220px; top:2845px;">
+      linkedin.com/in/rana-fahad-575baa171/</i>
+    <!-- </div> -->
+    <!-- Icons -->
+    <!-- <div class="container" style="float: right;"> -->
+    <i style="padding-right: 20px;"></i>
+    <i class="fa fa-instagram"
+      style="font-size:60px;color:rgb(240, 140, 218);text-shadow:2px 2px 4px #000000;padding-right: 7px;"></i>
+    <i class="fa fa-facebook"
+      style="font-size:60px;color:rgb(45, 110, 207);text-shadow:2px 2px 4px #000000;padding-right: 7px;"></i>
+    <i class="fa fa-whatsapp"
+      style="font-size:60px;color:rgb(48, 221, 63);text-shadow:2px 2px 4px #000000;padding-right: 7px;"></i>
+    <i class="fa fa-twitter"
+      style="font-size:60px;color:rgb(78, 168, 241);text-shadow:2px 2px 4px #000000;padding-right: 7px;"></i>
+  <!-- </div> -->
+    <div class="footer">
+      <p>Copyright ©2021. All rights reserved</p>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  -->
+</body>
+
+</html>

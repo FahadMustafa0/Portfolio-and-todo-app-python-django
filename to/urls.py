@@ -16,6 +16,6 @@ admin.site.index_title="wellcome to my app"
 
 urlpatterns = [
     path('', include('app.urls')),
-    path("contact", views.kontact, name='contact'),
-    path("about", views.abot, name='about')
+    # path("contact", views.kontact, name='contact'),
+    # path("about", views.abot, name='about')
 ]
